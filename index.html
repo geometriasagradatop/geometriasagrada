@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<script>
+    // Bloquear clic derecho
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    // Bloquear teclas comunes de desarrollador (F12, Ctrl+U, etc)
+    document.onkeydown = function(e) {
+        if(event.keyCode == 123) { return false; } // F12
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; } // Ctrl+Shift+I
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) { return false; } // Ctrl+Shift+C
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { return false; } // Ctrl+Shift+J
+        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; } // Ctrl+U
+    }
+</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Colección de herramientas interactivas de Geometría Sagrada. Generadores de Sri Yantra, Flor de la Vida y más. Diseña, medita y exporta.">
+    <title>Laboratorio de Geometría Sagrada | Apps Interactivas</title>
+    
+    <style>
+        body {
+            margin: 0;
+            background-color: #050505;
+            font-family: 'Segoe UI', sans-serif;
+            color: #e0e0e0;
+        }
+        
+        /* Hero Section */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+            border-bottom: 1px solid #333;
+        }
+        h1 { font-size: 2.5em; color: #FFD700; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 3px; }
+        p.subtitle { color: #888; font-size: 1.1em; max-width: 600px; margin: 0 auto; }
+
+        /* Grid de Apps */
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        /* Tarjeta de App */
+        .app-card {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.15);
+            border-color: #FFD700;
+        }
+        .card-img {
+            height: 200px;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em; /* Icono temporal */
+        }
+        .card-content { padding: 20px; }
+        .card-content h3 { margin: 0 0 10px 0; color: #FFD700; }
+        .card-content p { font-size: 0.9em; color: #aaa; margin: 0; }
+        
+        /* Etiquetas "Próximamente" */
+        .soon { opacity: 0.5; pointer-events: none; }
+        .tag { 
+            background: #333; color: #fff; padding: 2px 8px; 
+            border-radius: 4px; font-size: 0.7em; text-transform: uppercase; margin-left: 10px;
+        }
+
+        /* AdSense Container */
+        .ad-container {
+            max-width: 900px; margin: 40px auto;
+            height: 100px; background: #151515;
+            display: flex; align-items: center; justify-content: center;
+            border: 1px dashed #333; color: #444;
+        }
+
+        footer { text-align: center; padding: 40px; color: #555; font-size: 0.9em; border-top: 1px solid #222; }
+        footer a { color: #777; text-decoration: none; margin: 0 10px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Geometría Sagrada . TOP</h1>
+    <p class="subtitle">Herramientas digitales paramétricas para el diseño, estudio y meditación de patrones universales.</p>
+</header>
+
+<div class="ad-container">Espacio Anuncio Google</div>
+
+<div class="apps-grid">
+    
+    <a href="sri-yantra/index.html" class="app-card">
+        <div class="card-img"><img src="thumbnail-sri.png" alt="Sri Yantra" style="width:100%; height:100%; object-fit:cover;"></div> <div class="card-content">
+            <h3>Sri Yantra Lab <span class="tag" style="background:#FFD700; color:#000;">NUEVO</span></h3>
+            <p>Generador paramétrico del Sri Chakra. Ajusta las 14 intersecciones, Shiva y Shakti con precisión matemática. Luego lo exportas y lo pintas con tu aplicación favorita.</p>
+        </div>
+    </a>
+
+    <div class="app-card soon">
+        <div class="card-img">🌸</div>
+        <div class="card-content">
+            <h3>Flor de la Vida <span class="tag">Pronto</span></h3>
+            <p>Dibuja la semilla, el huevo y la flor completa. Ajusta radios y conexiones sagradas.</p>
+        </div>
+    </div>
+
+    <div class="app-card soon">
+        <div class="card-img">🍩</div>
+        <div class="card-content">
+            <h3>Toroide Energético <span class="tag">Pronto</span></h3>
+            <p>Visualizador 3D del flujo de energía universal. Matemáticas vórtex interactivas.</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="ad-container">Espacio Anuncio Google</div>
+
+<article style="max-width: 800px; margin: 0 auto; padding: 20px; color: #ccc;">
+    <h2 style="color: #FFD700;">El Laboratorio Digital de Patrones Sagrados</h2>
+    <p>Bienvenido a la suite de herramientas más completa para el estudio de la Geometría Sagrada. Nuestro objetivo es fusionar la sabiduría ancestral de los patrones universales con la tecnología web moderna.</p>
+    <p>Aquí no encontrarás imágenes estáticas. Cada "Lab" es un entorno matemático vivo donde tú controlas las variables, permitiéndote entender profundamente cómo se construyen el <strong>Sri Yantra</strong>, la <strong>Flor de la Vida</strong> o el <strong>Cubo de Metatrón</strong>.</p>
+</article>
+
+<footer>
+    <p>&copy; 2025 Geometría Sagrada Top.</p>
+    <br>
+    <a href="legal.html#privacidad">Política de Privacidad</a>
+    <a href="legal.html#terminos">Términos</a>
+    <a href="legal.html#cookies">Cookies</a>
+    <a href="mailto:geometriasagradatop@gmail.com">Contacto</a>
+</footer>
+
+</body>
+</html>
