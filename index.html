@@ -1,55 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
-<script>
-    // Bloquear clic derecho
-    document.addEventListener('contextmenu', event => event.preventDefault());
-
-    // Bloquear teclas comunes de desarrollador (F12, Ctrl+U, etc)
-    document.onkeydown = function(e) {
-        if(event.keyCode == 123) { return false; } // F12
-        if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; } // Ctrl+Shift+I
-        if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) { return false; } // Ctrl+Shift+C
-        if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { return false; } // Ctrl+Shift+J
-        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; } // Ctrl+U
-    }
-</script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Colección de herramientas interactivas de Geometría Sagrada. Generadores de Sri Yantra, Flor de la Vida y más. Diseña, medita y exporta.">
-    <title>Laboratorio de Geometría Sagrada | Apps Interactivas</title>
+    <meta name="description" content="Plataforma líder en herramientas de Geometría Sagrada. Generadores interactivos de Sri Yantra, Flor de la Vida y Toroide. Diseña, exporta y medita.">
+    <meta name="keywords" content="Geometría Sagrada, Sri Yantra, Flor de la Vida, Proporción Áurea, Fibonacci, Meditación Visual, Generador Mandala">
+    <meta name="author" content="Geometría Sagrada Top">
+    
+    <title>Geometría Sagrada TOP | Laboratorio Digital de Patrones Universales</title>
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3150277567590534"
      crossorigin="anonymous"></script>
-    
+
+    <script>
+        // Bloquear clic derecho
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // Bloquear teclas comunes de desarrollador
+        document.onkeydown = function(e) {
+            if(event.keyCode == 123) { return false; } // F12
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; } 
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) { return false; } 
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { return false; } 
+            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; } 
+        }
+    </script>
+
     <style>
         body {
             margin: 0;
             background-color: #050505;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             color: #e0e0e0;
+            line-height: 1.8;
         }
         
         /* Hero Section */
         header {
             text-align: center;
-            padding: 60px 20px;
+            padding: 80px 20px;
             background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
             border-bottom: 1px solid #333;
         }
-        h1 { font-size: 2.5em; color: #FFD700; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 3px; }
-        p.subtitle { color: #888; font-size: 1.1em; max-width: 600px; margin: 0 auto; }
+        h1 { font-size: 3em; color: #FFD700; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 3px; text-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
+        p.subtitle { color: #aaa; font-size: 1.2em; max-width: 700px; margin: 0 auto; font-weight: 300; }
 
         /* Grid de Apps */
+        .apps-container { background-color: #0a0a0a; padding: 40px 0; border-bottom: 1px solid #222; }
+        .section-title { text-align: center; color: #fff; margin-top: 0; font-weight: 300; text-transform: uppercase; letter-spacing: 2px; }
+        
         .apps-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             max-width: 1200px;
-            margin: 50px auto;
+            margin: 40px auto;
             padding: 0 20px;
         }
 
-        /* Tarjeta de App */
         .app-card {
             background: #111;
             border: 1px solid #333;
@@ -60,119 +68,127 @@
             color: inherit;
             display: flex;
             flex-direction: column;
+            position: relative;
         }
         .app-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.15);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
             border-color: #FFD700;
         }
         .card-img {
-            height: 200px;
+            height: 220px;
             background-color: #000;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3em; /* Icono temporal */
+            font-size: 4em;
+            overflow: hidden;
         }
-        .card-content { padding: 20px; }
-        .card-content h3 { margin: 0 0 10px 0; color: #FFD700; }
-        .card-content p { font-size: 0.9em; color: #aaa; margin: 0; }
+        .card-content { padding: 25px; }
+        .card-content h3 { margin: 0 0 10px 0; color: #FFD700; font-size: 1.4em; }
+        .card-content p { font-size: 0.95em; color: #999; margin: 0; line-height: 1.4; }
         
-        /* Etiquetas "Próximamente" */
-        .soon { opacity: 0.5; pointer-events: none; }
-        .tag { 
-            background: #333; color: #fff; padding: 2px 8px; 
-            border-radius: 4px; font-size: 0.7em; text-transform: uppercase; margin-left: 10px;
-        }
+        .tag { background: #333; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.6em; text-transform: uppercase; vertical-align: middle; margin-left: 8px;}
+        .soon { opacity: 0.6; pointer-events: none; filter: grayscale(1); }
 
-        /* AdSense Container */
+        /* Banner Publicidad Estilizado */
         .ad-container {
-            max-width: 900px; margin: 40px auto;
-            height: 100px; background: #151515;
+            max-width: 900px; margin: 50px auto;
+            min-height: 120px; background: #0f0f0f;
             display: flex; align-items: center; justify-content: center;
             border: 1px dashed #333; color: #444;
         }
 
-        footer { text-align: center; padding: 40px; color: #555; font-size: 0.9em; border-top: 1px solid #222; }
-        footer a { color: #777; text-decoration: none; margin: 0 10px; }
+        /* --- ARTÍCULO SEO --- */
+        .content-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        article h2 { 
+            color: #FFD700; 
+            font-size: 2em; 
+            margin-top: 60px; 
+            margin-bottom: 25px;
+            border-left: 5px solid #FF4500;
+            padding-left: 20px;
+        }
+        article h3 { color: #eee; margin-top: 40px; font-size: 1.5em; }
+        article p { margin-bottom: 20px; font-size: 1.1em; color: #ccc; text-align: justify; }
+        article strong { color: #fff; font-weight: 600; }
+        article ul { list-style-type: none; padding: 0; }
+        article li { margin-bottom: 15px; padding-left: 20px; border-left: 2px solid #444; color: #bbb; }
+
+        /* FAQ Section */
+        .faq-section { background-color: #111; padding: 60px 20px; margin-top: 40px; border-radius: 12px; }
+        .faq-item { margin-bottom: 30px; }
+        .faq-question { color: #FFD700; font-weight: bold; font-size: 1.2em; display: block; margin-bottom: 10px; }
+        .faq-answer { color: #aaa; }
+
+        footer { 
+            text-align: center; padding: 60px 20px; color: #555; font-size: 0.9em; 
+            border-top: 1px solid #222; background-color: #000; margin-top: 50px;
+        }
+        footer a { color: #777; text-decoration: none; margin: 0 15px; transition: color 0.2s;}
+        footer a:hover { color: #FFD700; }
+        
+        /* Móvil */
+        @media (max-width: 700px) {
+            h1 { font-size: 2em; }
+            .apps-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
 <header>
     <h1>Geometría Sagrada . TOP</h1>
-    <p class="subtitle">Herramientas digitales paramétricas para el diseño, estudio y meditación de patrones universales.</p>
+    <p class="subtitle">La suite definitiva de herramientas paramétricas para el diseño, estudio y meditación de patrones universales.</p>
 </header>
 
-<div class="ad-container"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3150277567590534"
-     crossorigin="anonymous"></script>
-<!-- banner_home -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3150277567590534"
-     data-ad-slot="3325375177"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script></div>
-
-<div class="apps-grid">
+<div class="apps-container">
+    <h2 class="section-title">Laboratorios Interactivos</h2>
     
-    <a href="sri-yantra/index.html" class="app-card">
-        <div class="card-img"><img src="thumbnail-sri.png" alt="Sri Yantra" style="width:100%; height:100%; object-fit:cover;"></div> <div class="card-content">
-            <h3>Sri Yantra Lab <span class="tag" style="background:#FFD700; color:#000;">NUEVO</span></h3>
-            <p>Generador paramétrico del Sri Chakra. Ajusta las 14 intersecciones, Shiva y Shakti con precisión matemática. Luego lo exportas y lo pintas con tu aplicación favorita.</p>
-        </div>
-    </a>
-
-    <div class="app-card soon">
-        <div class="card-img">🌸</div>
-        <div class="card-content">
-            <h3>Flor de la Vida <span class="tag">Pronto</span></h3>
-            <p>Dibuja la semilla, el huevo y la flor completa. Ajusta radios y conexiones sagradas.</p>
-        </div>
+    <div class="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3150277567590534"
+             data-ad-slot="3325375177"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
     </div>
 
-    <div class="app-card soon">
-        <div class="card-img">🍩</div>
-        <div class="card-content">
-            <h3>Toroide Energético <span class="tag">Pronto</span></h3>
-            <p>Visualizador 3D del flujo de energía universal. Matemáticas vórtex interactivas.</p>
-        </div>
-    </div>
+    <div class="apps-grid">
+        
+        <a href="sri-yantra/index.html" class="app-card">
+            <div class="card-img">
+                <img src="thumbnail-sri.png" alt="Sri Yantra Generator" style="width:100%; height:100%; object-fit:cover;">
+            </div> 
+            <div class="card-content">
+                <h3>Sri Yantra Lab <span class="tag" style="background:#FFD700; color:#000;">V8.0</span></h3>
+                <p>El generador más avanzado. Ajusta las 14 intersecciones, controla Shiva/Shakti y exporta en HD. Píntalo luego con tu app favorita.</p>
+            </div>
+        </a>
 
+        <div class="app-card soon">
+            <div class="card-img">🌸</div>
+            <div class="card-content">
+                <h3>Flor de la Vida <span class="tag">Próximamente</span></h3>
+                <p>Traza la Semilla, el Huevo y el Fruto de la Vida. Geometría hexagonal perfecta.</p>
+            </div>
+        </div>
+
+        <div class="app-card soon">
+            <div class="card-img">🍩</div>
+            <div class="card-content">
+                <h3>Toroide Vórtex <span class="tag">En Desarrollo</span></h3>
+                <p>Visualización del flujo energético universal. Matemáticas de bobina Rodin y Vórtex.</p>
+            </div>
+        </div>
+        
+    </div>
 </div>
-
-<div class="ad-container"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3150277567590534"
-     crossorigin="anonymous"></script>
-<!-- banner_home -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3150277567590534"
-     data-ad-slot="3325375177"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script></div>
-
-<article style="max-width: 800px; margin: 0 auto; padding: 20px; color: #ccc;">
-    <h2 style="color: #FFD700;">El Laboratorio Digital de Patrones Sagrados</h2>
-    <p>Bienvenido a la suite de herramientas más completa para el estudio de la Geometría Sagrada. Nuestro objetivo es fusionar la sabiduría ancestral de los patrones universales con la tecnología web moderna.</p>
-    <p>Aquí no encontrarás imágenes estáticas. Cada "Lab" es un entorno matemático vivo donde tú controlas las variables, permitiéndote entender profundamente cómo se construyen el <strong>Sri Yantra</strong>, la <strong>Flor de la Vida</strong> o el <strong>Cubo de Metatrón</strong>.</p>
-</article>
-
-<footer>
-    <p>&copy; 2025 Geometría Sagrada Top.</p>
-    <br>
-    <a href="legal.html#privacidad">Política de Privacidad</a>
-    <a href="legal.html#terminos">Términos</a>
-    <a href="legal.html#cookies">Cookies</a>
-    <a href="mailto:geometriasagradatop@gmail.com">Contacto</a>
-</footer>
-
-</body>
-
-</html>
-
